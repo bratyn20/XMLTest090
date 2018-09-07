@@ -1,0 +1,7 @@
+C:\Users\Samsung\source\repos\XMLTest\XMLTest\bin\Debug\XMLTest.exe.config
+C:\Users\Samsung\source\repos\XMLTest\XMLTest\bin\Debug\XMLTest.exe
+C:\Users\Samsung\source\repos\XMLTest\XMLTest\bin\Debug\XMLTest.pdb
+C:\Users\Samsung\source\repos\XMLTest\XMLTest\obj\Debug\XMLTest.csprojResolveAssemblyReference.cache
+C:\Users\Samsung\source\repos\XMLTest\XMLTest\obj\Debug\XMLTest.csproj.CoreCompileInputs.cache
+C:\Users\Samsung\source\repos\XMLTest\XMLTest\obj\Debug\XMLTest.exe
+C:\Users\Samsung\source\repos\XMLTest\XMLTest\obj\Debug\XMLTest.pdb
