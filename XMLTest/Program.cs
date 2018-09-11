@@ -39,8 +39,6 @@ namespace XMLTest
                     using (StreamWriter sw = new StreamWriter(writePatch, false, System.Text.Encoding.Default))
                     {
                         NodeReturn(xRoot, sw);
-                        //sw.WriteLine("");
-                        //sw.Write(4.5);
                     }
                 }
                 else
@@ -49,8 +47,6 @@ namespace XMLTest
                     using (StreamWriter sw = new StreamWriter(writePatch, false, System.Text.Encoding.Default))
                     {
                         NodeReturn(xRoot, sw);
-                        //sw.WriteLine("");
-                        //sw.Write(4.5);
                     }
                 }
             }
@@ -63,40 +59,7 @@ namespace XMLTest
                 Main(args);
             }
 
-            // получим корневой элемент
-            //XmlElement xRoot = xDoc.DocumentElement;
-            // обход всех узлов в корневом элементе
-            /*     foreach (XmlNode xnode in xRoot)
-                 {
-                     Console.WriteLine("'" + xnode.Name + "' : {" );
-                     // получаем атрибут name
-                     if (xnode.Attributes.Count > 0)
-                     {
-                         XmlNode attr = xnode.Attributes.GetNamedItem("name");
-                         if (attr != null)
-                             Console.WriteLine(attr.Value);
-                     }
-                     // обходим все дочерние узлы элемента user
-                     foreach (XmlNode childnode in xnode.ChildNodes)
-                     {
-                         // если узел - company
-                         if (childnode.Name == "company")
-                         {
-                             Console.WriteLine("Компания: {0}", childnode.InnerText);
-                         }
-                         // если узел age
-                         if (childnode.Name == "age")
-                         {
-                             Console.WriteLine("Возраст: {0}", childnode.InnerText);
-                         }
-                     }
-                     Console.WriteLine();
-                 }*/
-          //  string writePath = @"C:\ath.json";
-            
-
-
-            //NodeReturn(xRoot);
+          
 
             Console.Read();
         }
@@ -108,11 +71,11 @@ namespace XMLTest
                 bool flag = false;
                 bool flag2 = false;
                 bool flag3 = false;
-                // if(xRoot.LocalName != "#text")
+              
                 foreach (XmlNode xnode in xRoot)
                 {
 
-                    //Console.WriteLine("'" + xnode.Name + "' : {" );
+                    
                     if (xnode.NextSibling != null)
                     {
                         if (xnode.PreviousSibling != null && xnode.PreviousSibling.Name == xnode.NextSibling.Name)
@@ -137,7 +100,6 @@ namespace XMLTest
                             flag = true;
                             Console.Write("'" + xnode.Name + "' : [");
                             sw.Write("'" + xnode.Name + "' : [");
-                            //  Console.WriteLine("[");
                             Console.WriteLine("{");
                             sw.WriteLine("{");
                             if (xnode.Attributes.Count > 0)
@@ -164,13 +126,7 @@ namespace XMLTest
                             }
                             else
                             {
-                                //  if(xnode.FirstChild!= null && xnode.LastChild != null)
-                                // {
-                                //Console.WriteLine(xnode.Name + " : {");
-                                //NodeReturn(xnode);
-                                // }
-                                // else
-                                // {
+                               
                                 if (xnode.FirstChild != null && xnode.LastChild != null)
                                     if (xnode.FirstChild.NodeType != XmlNodeType.Text && xnode.LastChild.NodeType != XmlNodeType.Text)
                                     {
@@ -183,7 +139,7 @@ namespace XMLTest
                                         Console.WriteLine(xnode.Name + " : " + xnode.InnerText + ",");
                                         sw.WriteLine(xnode.Name + " : " + xnode.InnerText + ",");
                                     }
-                                // }
+                             
 
                             }
                         }
@@ -257,34 +213,10 @@ namespace XMLTest
 
 
 
-                    /*   else
-                       {
-                           if(xnode.NextSibling.Name == xnode.Name)
-                           Console.WriteLine("'" + xnode.Name + "' : [ \n {");
-                           else
-                           {
-
-                           }
-                       }*/
-
-                    /*if (xnode.FirstChild != xnode.LastChild && xnode.NodeType == XmlNodeType.Element)
-                    {
-                        if (xnode.HasChildNodes == true)
-                            Console.WriteLine("'" + xnode.Name + "' : {");
-                    }
-                    else
-                    {
-                        Console.WriteLine(xnode.Name + " : ");
-                    }*/
-                    //^^^ РАБОЧИЙ КОД
-
-                    /*  if (xRoot.FirstChild == xRoot.LastChild && xnode.HasChildNodes == true)
-                      {
-                          Console.WriteLine("[");
-                      }*/
+                  
 
                     if (xnode.FirstChild != null)
-                        if (/*xnode.FirstChild != xnode.LastChild &&*/ xnode.FirstChild.NodeType != XmlNodeType.Text)
+                        if (xnode.FirstChild.NodeType != XmlNodeType.Text)
                             NodeReturn(xnode, sw);
                     if (xnode.NextSibling == null)
                         if (xnode.PreviousSibling != null)
@@ -307,14 +239,9 @@ namespace XMLTest
                         sw.WriteLine("} ,");
                     }
 
-                    /*    if (xRoot.FirstChild == xRoot.LastChild && xnode.HasChildNodes == true)
-                        {
-                            Console.WriteLine("]");
-                        }*/
+                 
                 }
-
-                //NodeReturn(xnode.ChildNodes);
-                // Console.WriteLine();
+                
             }
             catch(Exception ex)
             {
@@ -324,29 +251,3 @@ namespace XMLTest
         }
     }
 }
-
-
-// получаем атрибут name
-/*     if (xnode.FirstChild != null)
-         if (xnode.Attributes.Count > 0)
-     {
-         XmlNode attr = xnode.Attributes.GetNamedItem("name");
-         if (attr != null)
-             Console.WriteLine(attr.Value);
-     }*/
-// обходим все дочерние узлы элемента user
-//   if (xnode.FirstChild != null)
-/*       foreach (XmlNode childnode in xRoot.ChildNodes)
-       {
-       Console.WriteLine(childnode.Name+ " : " + childnode.InnerText);
-       NodeReturn(childnode);*
-       // если узел - company
-       /*   if (childnode.Name == "company")
-          {
-              Console.WriteLine("Компания: {0}", childnode.InnerText);
-          }
-          // если узел age
-          if (childnode.Name == "age")
-          {
-              Console.WriteLine("Возраст: {0}", childnode.InnerText);
-          }*/
